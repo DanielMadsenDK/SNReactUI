@@ -3,7 +3,7 @@ import { ApplicationMenu, Record } from '@servicenow/sdk/core'
 
 export const menu = ApplicationMenu({
   $id: Now.ID['showcase.menu'],
-  title: 'UI Components Showcase',
+  title: 'React Components Showcase',
   hint: 'Demonstrates ServiceNow Horizon Design System React components',
 })
 
@@ -11,7 +11,7 @@ Record({
   $id: Now.ID['showcase.module'],
   table: 'sys_app_module',
   data: {
-    title: 'Component Showcase',
+    title: 'Components Showcase',
     application: menu,
     active: true,
     link_type: 'DIRECT',

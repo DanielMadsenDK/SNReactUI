@@ -162,22 +162,28 @@ export default function App() {
     <div style={{padding: '1.5rem', maxWidth: '1280px', margin: '0 auto'}}>
 
       {/* ── Page header ── */}
-      <div style={{display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '0.25rem'}}>
-        <Heading label="ServiceNow HDS Component Showcase" level={1} variant="header-primary" hasNoMargin />
-        <div style={{display: 'flex', alignItems: 'center', gap: '0.5rem', paddingTop: '0.25rem'}}>
-          <Avatar userName="Daniel Aagren Seehartrai Madsen" size="md" />
-          <div style={{display: 'flex', flexDirection: 'column', gap: '0.25rem'}}>
-            <span style={{fontSize: '0.875rem', fontWeight: 600, color: 'var(--now-color--text-primary, #1a1a1a)', lineHeight: 1.2}}>
-              Daniel Aagren Seehartrai Madsen
-            </span>
-            <HighlightedValue label="ServiceNow Rising Star 2025" color="positive" variant="primary" showIcon icon="star-fill" size="sm" />
-          </div>
+      <div style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'flex-end',
+        borderBottom: '1px solid var(--now-color--border, #e0e0e0)',
+        paddingBottom: '1rem',
+        marginBottom: '1.5rem',
+        flexWrap: 'wrap',
+        gap: '0.75rem',
+      }}>
+        <div>
+          <Heading label="ServiceNow HDS Component Showcase" level={1} variant="header-primary" hasNoMargin />
+          <p style={{color: 'var(--now-color--text-secondary, #666)', marginTop: '0.375rem', marginBottom: 0}}>
+            Interactive gallery of Horizon Design System components from{' '}
+            <code>@servicenow/react-components</code>
+          </p>
+        </div>
+        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.35rem', flexShrink: 0}}>
+          <TextLink label="Daniel Aagren Seehartrai Madsen" href="https://www.linkedin.com/in/danielaagrenmadsen/" opensWindow />
+          <HighlightedValue label="ServiceNow Rising Star 2025" color="positive" variant="primary" showIcon icon="star-fill" size="sm" />
         </div>
       </div>
-      <p style={{color: 'var(--now-color--text-secondary, #666)', marginBottom: '1.5rem', marginTop: '0.5rem'}}>
-        Interactive gallery of Horizon Design System components from{' '}
-        <code>@servicenow/react-components</code>
-      </p>
 
       <Tabs
         items={TAB_ITEMS}
