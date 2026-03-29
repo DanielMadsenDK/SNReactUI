@@ -47,8 +47,11 @@ import {Breadcrumbs} from '@servicenow/react-components/Breadcrumbs';
 import {TemplateMessage} from '@servicenow/react-components/TemplateMessage';
 
 // ── Typography ───────────────────────────────────────────────────────────────
+import {RichText} from '@servicenow/react-components/RichText';
 import {StylizedText} from '@servicenow/react-components/StylizedText';
 import {TextLink} from '@servicenow/react-components/TextLink';
+import {Illustration} from '@servicenow/react-components/Illustration';
+import {Image as NowImage} from '@servicenow/react-components/Image';
 
 // ── Static data ──────────────────────────────────────────────────────────────
 
@@ -159,8 +162,19 @@ export default function App() {
     <div style={{padding: '1.5rem', maxWidth: '1280px', margin: '0 auto'}}>
 
       {/* ── Page header ── */}
-      <Heading label="ServiceNow HDS Component Showcase" level={1} variant="header-primary" />
-      <p style={{color: 'var(--now-color--text-secondary, #666)', marginBottom: '1.5rem', marginTop: '0.25rem'}}>
+      <div style={{display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '0.25rem'}}>
+        <Heading label="ServiceNow HDS Component Showcase" level={1} variant="header-primary" hasNoMargin />
+        <div style={{display: 'flex', alignItems: 'center', gap: '0.5rem', paddingTop: '0.25rem'}}>
+          <Avatar userName="Daniel Aagren Seehartrai Madsen" size="md" />
+          <div style={{display: 'flex', flexDirection: 'column', gap: '0.25rem'}}>
+            <span style={{fontSize: '0.875rem', fontWeight: 600, color: 'var(--now-color--text-primary, #1a1a1a)', lineHeight: 1.2}}>
+              Daniel Aagren Seehartrai Madsen
+            </span>
+            <HighlightedValue label="ServiceNow Rising Star 2025" color="positive" variant="primary" showIcon icon="star-fill" size="sm" />
+          </div>
+        </div>
+      </div>
+      <p style={{color: 'var(--now-color--text-secondary, #666)', marginBottom: '1.5rem', marginTop: '0.5rem'}}>
         Interactive gallery of Horizon Design System components from{' '}
         <code>@servicenow/react-components</code>
       </p>
@@ -1034,6 +1048,15 @@ export default function App() {
               </div>
             </Section>
 
+            {/* RichText */}
+            <Section>
+              <Heading label="RichText — Safe HTML Rendering" level={3} variant="title-secondary" hasNoMargin />
+              <CardDivider />
+              <div style={{marginTop: '1rem'}}>
+                <RichText html="<p>Use <strong>RichText</strong> to render <em>safe HTML</em> content — scripts and inline JS are stripped automatically.</p><ul><li>Supports lists</li><li>Supports <a href='#'>links</a></li><li>Supports <code>inline code</code></li></ul>" />
+              </div>
+            </Section>
+
             {/* StylizedText */}
             <Section>
               <Heading label="StylizedText" level={3} variant="title-secondary" hasNoMargin />
@@ -1090,6 +1113,37 @@ export default function App() {
                 <HighlightedValue label="High" color="high" variant="tertiary" />
                 <HighlightedValue label="Moderate" color="warning" variant="tertiary" />
                 <HighlightedValue label="Positive" color="positive" variant="tertiary" />
+              </div>
+            </Section>
+
+            {/* Illustration */}
+            <Section>
+              <Heading label="Illustration — Built-in SVG Assets" level={3} variant="title-secondary" hasNoMargin />
+              <CardDivider />
+              <div style={{display: 'flex', flexWrap: 'wrap', gap: '2rem', marginTop: '1rem', alignItems: 'flex-end'}}>
+                {(['no-search-results', 'no-data', 'error', 'completed-tasks', 'add-attachment', 'first-time-user', 'unconfigured'] as const).map(name => (
+                  <div key={name} style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem'}}>
+                    <Illustration illustration={name} size="sm" alt={name} />
+                    <span style={{fontSize: '0.75rem', color: 'var(--now-color--text-secondary, #666)'}}>{name}</span>
+                  </div>
+                ))}
+              </div>
+            </Section>
+
+            {/* Image */}
+            <Section>
+              <Heading label="Image — Responsive" level={3} variant="title-secondary" hasNoMargin />
+              <CardDivider />
+              <div style={{marginTop: '1rem', display: 'flex', flexDirection: 'column', gap: '1rem'}}>
+                <NowImage
+                  src="https://placehold.co/480x200/e8f4fd/1a6ea8?text=now-image+component"
+                  alt="Placeholder demonstrating the Image component"
+                  style={{maxWidth: '480px', borderRadius: '8px'}}
+                />
+                <p style={{fontSize: '0.8125rem', color: 'var(--now-color--text-secondary, #666)', margin: 0}}>
+                  The <code>Image</code> component wraps <code>now-image</code> with responsive source support,
+                  click events, and accessible alt text.
+                </p>
               </div>
             </Section>
 
